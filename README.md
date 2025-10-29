@@ -18,6 +18,8 @@ This project compares **Deep Learning (Artificial Neural Networks)** with **Rand
 
 ![Lung Cancer Prediction - Documentation 2](LungAI2.png)
 
+![Lung Cancer Prediction - Documentation 3](LungAI3.png)
+
 ### Key Highlights
 
 - 🏆 **Random Forest achieves 91.94% accuracy** with 100% specificity (perfect LOW_RISK detection)
@@ -190,7 +192,9 @@ If you use this work in your research, please cite:
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+Copyright (c) 2025 Lyon Ambrosio Djuanda
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
