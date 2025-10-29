@@ -46,6 +46,12 @@ This research project implements and compares **Deep Learning (Artificial Neural
 - ✅ **Professional Visualizations:** Publication-ready figures and charts
 - ✅ **Reproducible Research:** Complete pipeline with random seed control
 
+### 📸 Project Documentation
+
+![Lung Cancer Prediction - Documentation 1](LungAI1.png)
+
+![Lung Cancer Prediction - Documentation 2](LungAI2.png)
+
 ---
 
 ## 🎓 Research Objectives
