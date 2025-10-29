@@ -1,0 +1,90 @@
+================================================================================
+RESEARCH REPORT
+Deep Learning vs. Random Forest for Lung Cancer Risk Prediction
+in Pakistan: A Comparative Analysis on Limited Clinical Data
+================================================================================
+
+Generated: 2025-10-28 22:31:45
+
+--------------------------------------------------------------------------------
+1. STUDY CONTEXT
+--------------------------------------------------------------------------------
+Location: Pakistan
+Data Type: Clinical survey data from Pakistani patients
+Challenge: Limited dataset size (n=309)
+Objective: Compare Deep Learning (ANN) with Classical ML (Random Forest)
+           for clinical decision support in resource-constrained settings
+
+--------------------------------------------------------------------------------
+2. DATASET INFORMATION
+--------------------------------------------------------------------------------
+Total Samples: 309
+Training Samples: 247
+Testing Samples: 62
+Number of Features: 15
+Population: Pakistani lung cancer patients
+
+--------------------------------------------------------------------------------
+3. TOP 5 MOST IMPORTANT CLINICAL FEATURES
+--------------------------------------------------------------------------------
+2. ALLERGY : 0.7995
+6. SWALLOWING DIFFICULTY: 0.6017
+3. ALCOHOL CONSUMING: 0.4366
+11. COUGHING: 0.4129
+1. AGE_NORMALIZED: 0.3571
+
+--------------------------------------------------------------------------------
+4. MODEL PERFORMANCE COMPARISON
+--------------------------------------------------------------------------------
+Models Evaluated:
+  • Deep Learning: 4 ANN architectures (Simple, Deep, Advanced, Regularized)
+  • Classical ML: Random Forest (optimized for small datasets)
+
+          Model  Accuracy  Sensitivity  Specificity  Precision  F1-Score  ROC-AUC   PR-AUC      MCC  Balanced Accuracy
+Regularized_ANN  0.903226     0.907407        0.875   0.980000  0.942308 0.951389 0.993085 0.663895           0.891204
+  Random_Forest  0.919355     0.925926        0.875   0.980392  0.952381 0.944444 0.992357 0.702834           0.900463
+   Advanced_ANN  0.870968     0.851852        1.000   1.000000  0.920000 0.939815 0.991528 0.652630           0.925926
+       Deep_ANN  0.870968     0.870370        0.875   0.979167  0.921569 0.921296 0.987051 0.597626           0.872685
+     Simple_ANN  0.854839     0.944444        0.250   0.894737  0.918919 0.652778 0.922311 0.239395           0.597222
+
+--------------------------------------------------------------------------------
+5. BEST PERFORMING MODEL (by ROC-AUC)
+--------------------------------------------------------------------------------
+Model: Regularized_ANN
+Accuracy: 0.9032
+ROC-AUC: 0.9514
+Sensitivity: 0.9074
+Specificity: 0.8750
+F1-Score: 0.9423
+Model Type: Deep Learning
+
+--------------------------------------------------------------------------------
+6. KEY FINDINGS & CLINICAL IMPLICATIONS
+--------------------------------------------------------------------------------
+Random Forest Accuracy: 0.9194
+Best ANN Accuracy: 0.9032
+
+=> Random Forest outperforms Deep Learning on this limited dataset.
+  This aligns with ML theory: traditional models excel with <1000 samples.
+
+--------------------------------------------------------------------------------
+7. CONCLUSIONS
+--------------------------------------------------------------------------------
+This comparative study evaluated Deep Learning (ANN) versus Classical
+Machine Learning (Random Forest) for lung cancer risk prediction using
+clinical data from Pakistani patients (n=309).
+
+Key Findings:
+• Both paradigms achieve strong performance (>85% accuracy)
+• Limited dataset size (309 samples) favors traditional ML approaches
+• Random Forest offers: faster training, interpretability, no scaling needed
+• ANNs offer: flexible architecture, potential for complex pattern learning
+
+Recommendation for Resource-Constrained Settings:
+Random Forest is recommended for clinical deployment in settings with
+limited data availability, due to its reliability, interpretability,
+and reduced computational requirements.
+
+================================================================================
+END OF REPORT
+================================================================================

@@ -1,0 +1,30 @@
+================================================================================
+DATA ANALYSIS REPORT (Without Deep Learning)
+================================================================================
+
+Dataset: data/survey lung cancer.csv
+Total Samples: 309
+Features: 15
+Training Samples: 247
+Testing Samples: 62
+
+Target Distribution:
+  YES: 270 (87.38%)
+  NO: 39 (12.62%)
+
+Random Forest Baseline Accuracy: 0.9194
+
+Top 10 Most Important Features:
+          Feature  Importance
+   AGE_NORMALIZED    0.207015
+         ALLERGY     0.094319
+    PEER_PRESSURE    0.085214
+ALCOHOL CONSUMING    0.078479
+         FATIGUE     0.062769
+  CHRONIC DISEASE    0.061882
+   YELLOW_FINGERS    0.056878
+         WHEEZING    0.053143
+          ANXIETY    0.047622
+       CHEST PAIN    0.046741
+
+================================================================================

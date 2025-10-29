@@ -1,0 +1,89 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_checkpoints/
+
+# TensorFlow/Keras
+*.h5
+*.hdf5
+*.pb
+
+# Models (optional - uncomment if you don't want to track models)
+# models/*.h5
+# models/*.pkl
+
+# Results (optional - uncomment if you don't want to track results)
+# results/*.csv
+# results/*.json
+# results/*.txt
+
+# Figures (optional - uncomment if you don't want to track figures)
+# figures/*.png
+# figures/*.jpg
+# figures/*.pdf
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Environment variables
+.env
+.env.local
+
+# Data files (if sensitive)
+# data/*.csv
+
+# Pytest
+.pytest_cache/
+.coverage
+htmlcov/
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+

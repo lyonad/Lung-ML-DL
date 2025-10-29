@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Advanced AI-powered lung cancer risk assessment using deep learning and machine learning models">
+    <title>Lung Cancer Risk Prediction | AI-Powered Healthcare</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <span>Lung<strong>AI</strong></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/" class="active">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/documentation">API Docs</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background"></div>
+        <div class="container hero-content">
+            <div class="hero-text">
+                <div class="hero-badge">
+                    <span>Random Forest & Artificial Neural Network</span>
+                </div>
+                <h1 class="hero-title">
+                    Early Detection Through
+                    <span class="gradient-text">Artificial Intelligence</span>
+                </h1>
+                <p class="hero-description">
+                    Comparing deep learning and machine learning approaches for lung cancer risk prediction 
+                    using limited clinical data from Pakistani patients. Research-validated models optimized 
+                    for resource-constrained healthcare settings.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">91.9%</div>
+                        <div class="stat-label">Best Accuracy</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">309</div>
+                        <div class="stat-label">Patients</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">15</div>
+                        <div class="stat-label">Features</div>
+                    </div>
+                </div>
+                <div class="hero-cta">
+                    <a href="#assessment" class="btn btn-primary btn-large">
+                        <span>Start Assessment</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#how-it-works" class="btn btn-secondary btn-large">
+                        <i class="fas fa-play-circle"></i>
+                        <span>Learn More</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-card card-1">
+                    <i class="fas fa-brain"></i>
+                    <div class="card-content">
+                        <div class="card-title">Deep Learning</div>
+                        <div class="card-subtitle">Neural Networks</div>
+                    </div>
+                </div>
+                <div class="floating-card card-2">
+                    <i class="fas fa-lungs"></i>
+                    <div class="card-content">
+                        <div class="card-title">Risk Analysis</div>
+                        <div class="card-subtitle">15 Factors</div>
+                    </div>
+                </div>
+                <div class="floating-card card-3">
+                    <i class="fas fa-chart-line"></i>
+                    <div class="card-content">
+                        <div class="card-title">91.9% Accurate</div>
+                        <div class="card-subtitle">Random Forest</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Assessment Form Section -->
+    <section id="assessment" class="assessment-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Risk Assessment</h2>
+                <p class="section-subtitle">Fill in the information below to receive your personalized risk analysis</p>
+            </div>
+
+            <div class="assessment-container">
+                <!-- Progress Indicator -->
+                <div class="progress-bar">
+                    <div class="progress-step active" data-step="1">
+                        <div class="step-circle">1</div>
+                        <div class="step-label">Basic Info</div>
+                    </div>
+                    <div class="progress-line"></div>
+                    <div class="progress-step" data-step="2">
+                        <div class="step-circle">2</div>
+                        <div class="step-label">Risk Factors</div>
+                    </div>
+                    <div class="progress-line"></div>
+                    <div class="progress-step" data-step="3">
+                        <div class="step-circle">3</div>
+                        <div class="step-label">Symptoms</div>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <form id="assessment-form" class="assessment-form">
+                    <!-- Step 1: Basic Information -->
+                    <div class="form-step active" data-step="1">
+                        <h3 class="step-title">Basic Information</h3>
+                        
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="gender" class="form-label">
+                                    <i class="fas fa-user"></i>
+                                    Gender
+                                </label>
+                                <div class="radio-group">
+                                    <label class="radio-card">
+                                        <input type="radio" name="gender" value="M" required>
+                                        <div class="radio-content">
+                                            <i class="fas fa-mars"></i>
+                                            <span>Male</span>
+                                        </div>
+                                    </label>
+                                    <label class="radio-card">
+                                        <input type="radio" name="gender" value="F">
+                                        <div class="radio-content">
+                                            <i class="fas fa-venus"></i>
+                                            <span>Female</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="age" class="form-label">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    Age
+                                </label>
+                                <input type="number" id="age" name="age" class="form-input" 
+                                       min="1" max="120" required placeholder="Enter age">
+                                <div class="form-hint">Age between 1-120 years</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Risk Factors -->
+                    <div class="form-step" data-step="2">
+                        <h3 class="step-title">Lifestyle & Risk Factors</h3>
+                        
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fas fa-smoking"></i>
+                                    Smoking
+                                </label>
+                                <div class="toggle-group">
+                                    <label class="toggle-card">
+                                        <input type="radio" name="smoking" value="2" required>
+                                        <div class="toggle-content">
+                                            <i class="fas fa-check-circle"></i>
+                                            <span>Yes</span>
+                                        </div>
+                                    </label>
+                                    <label class="toggle-card">
+                                        <input type="radio" name="smoking" value="1">
+                                        <div class="toggle-content">
+                                            <i class="fas fa-times-circle"></i>
+                                            <span>No</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fas fa-hand-paper"></i>
+                                    Yellow Fingers
+                                </label>
+                                <div class="toggle-group">
+                                    <label class="toggle-card">
+                                        <input type="radio" name="yellow_fingers" value="2" required>
+                                        <div class="toggle-content">
+                                            <i class="fas fa-check-circle"></i>
+                                            <span>Yes</span>
+                                        </div>
+                                    </label>
+                                    <label class="toggle-card">
+                                        <input type="radio" name="yellow_fingers" value="1">
+                                        <div class="toggle-content">
+                                            <i class="fas fa-times-circle"></i>
+                                            <span>No</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fas fa-brain"></i>
+                                    Anxiety
+                                </label>
+                                <div class="toggle-group">
+                                    <label class="toggle-card">
+                                        <input type="radio" name="anxiety" value="2" required>
+                                        <div class="toggle-content">
+                                            <i class="fas fa-check-circle"></i>
+                                            <span>Yes</span>
+                                        </div>
+                                    </label>
+                                    <label class="toggle-card">
+                                        <input type="radio" name="anxiety" value="1">
+                                        <div class="toggle-content">
+                                            <i class="fas fa-times-circle"></i>
+                                            <span>No</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fas fa-notes-medical"></i>
+                                    Chronic Disease
+                                </label>
+                                <div class="toggle-group">
+                                    <label class="toggle-card">
+                                        <input type="radio" name="chronic_disease" value="2" required>
+                                        <div class="toggle-content">
+                                            <i class="fas fa-check-circle"></i>
+                                            <span>Yes</span>
+                                        </div>
+                                    </label>
+                                    <label class="toggle-card">
+                                        <input type="radio" name="chronic_disease" value="1">
+                                        <div class="toggle-content">
+                                            <i class="fas fa-times-circle"></i>
+                                            <span>No</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fas fa-tired"></i>
+                                    Fatigue
+                                </label>
+                                <div class="toggle-group">
+                                    <label class="toggle-card">
+                                        <input type="radio" name="fatigue" value="2" required>
+                                        <div class="toggle-content">
+                                            <i class="fas fa-check-circle"></i>
+                                            <span>Yes</span>
+                                        </div>
+                                    </label>
+                                    <label class="toggle-card">
+                                        <input type="radio" name="fatigue" value="1">
+                                        <div class="toggle-content">
+                                            <i class="fas fa-times-circle"></i>
+                                            <span>No</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fas fa-allergies"></i>
+                                    Allergies
+                                </label>
+                                <div class="toggle-group">
+                                    <label class="toggle-card">
+                                        <input type="radio" name="allergy" value="2" required>
+                                        <div class="toggle-content">
+                                            <i class="fas fa-check-circle"></i>
+                                            <span>Yes</span>
+                                        </div>
+                                    </label>
+                                    <label class="toggle-card">
+                                        <input type="radio" name="allergy" value="1">
+                                        <div class="toggle-content">
+                                            <i class="fas fa-times-circle"></i>
+                                            <span>No</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fas fa-wine-glass"></i>
+                                    Alcohol Consumption
+                                </label>
+                                <div class="toggle-group">
+                                    <label class="toggle-card">
+                                        <input type="radio" name="alcohol_consuming" value="2" required>
+                                        <div class="toggle-content">
+                                            <i class="fas fa-check-circle"></i>
+                                            <span>Yes</span>
+                                        </div>
+                                    </label>
+                                    <label class="toggle-card">
+                                        <input type="radio" name="alcohol_consuming" value="1">
+                                        <div class="toggle-content">
+                                            <i class="fas fa-times-circle"></i>
+                                            <span>No</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Symptoms -->
+                    <div class="form-step" data-step="3">
+                        <h3 class="step-title">Current Symptoms</h3>
+                        
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fas fa-wind"></i>
+                                    Wheezing
+                                </label>
+                                <div class="toggle-group">
+                                    <label class="toggle-card">
+                                        <input type="radio" name="wheezing" value="2" required>
+                                        <div class="toggle-content">
+                                            <i class="fas fa-check-circle"></i>
+                                            <span>Yes</span>
+                                        </div>
+                                    </label>
+                                    <label class="toggle-card">
+                                        <input type="radio" name="wheezing" value="1">
+                                        <div class="toggle-content">
+                                            <i class="fas fa-times-circle"></i>
+                                            <span>No</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fas fa-head-side-cough"></i>
+                                    Coughing
+                                </label>
+                                <div class="toggle-group">
+                                    <label class="toggle-card">
+                                        <input type="radio" name="coughing" value="2" required>
+                                        <div class="toggle-content">
+                                            <i class="fas fa-check-circle"></i>
+                                            <span>Yes</span>
+                                        </div>
+                                    </label>
+                                    <label class="toggle-card">
+                                        <input type="radio" name="coughing" value="1">
+                                        <div class="toggle-content">
+                                            <i class="fas fa-times-circle"></i>
+                                            <span>No</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fas fa-lungs"></i>
+                                    Shortness of Breath
+                                </label>
+                                <div class="toggle-group">
+                                    <label class="toggle-card">
+                                        <input type="radio" name="shortness_of_breath" value="2" required>
+                                        <div class="toggle-content">
+                                            <i class="fas fa-check-circle"></i>
+                                            <span>Yes</span>
+                                        </div>
+                                    </label>
+                                    <label class="toggle-card">
+                                        <input type="radio" name="shortness_of_breath" value="1">
+                                        <div class="toggle-content">
+                                            <i class="fas fa-times-circle"></i>
+                                            <span>No</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fas fa-utensils"></i>
+                                    Swallowing Difficulty
+                                </label>
+                                <div class="toggle-group">
+                                    <label class="toggle-card">
+                                        <input type="radio" name="swallowing_difficulty" value="2" required>
+                                        <div class="toggle-content">
+                                            <i class="fas fa-check-circle"></i>
+                                            <span>Yes</span>
+                                        </div>
+                                    </label>
+                                    <label class="toggle-card">
+                                        <input type="radio" name="swallowing_difficulty" value="1">
+                                        <div class="toggle-content">
+                                            <i class="fas fa-times-circle"></i>
+                                            <span>No</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fas fa-heartbeat"></i>
+                                    Chest Pain
+                                </label>
+                                <div class="toggle-group">
+                                    <label class="toggle-card">
+                                        <input type="radio" name="chest_pain" value="2" required>
+                                        <div class="toggle-content">
+                                            <i class="fas fa-check-circle"></i>
+                                            <span>Yes</span>
+                                        </div>
+                                    </label>
+                                    <label class="toggle-card">
+                                        <input type="radio" name="chest_pain" value="1">
+                                        <div class="toggle-content">
+                                            <i class="fas fa-times-circle"></i>
+                                            <span>No</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fas fa-users"></i>
+                                    Peer Pressure
+                                </label>
+                                <div class="toggle-group">
+                                    <label class="toggle-card">
+                                        <input type="radio" name="peer_pressure" value="2" required>
+                                        <div class="toggle-content">
+                                            <i class="fas fa-check-circle"></i>
+                                            <span>Yes</span>
+                                        </div>
+                                    </label>
+                                    <label class="toggle-card">
+                                        <input type="radio" name="peer_pressure" value="1">
+                                        <div class="toggle-content">
+                                            <i class="fas fa-times-circle"></i>
+                                            <span>No</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Form Navigation -->
+                    <div class="form-navigation">
+                        <button type="button" class="btn btn-secondary btn-prev" disabled>
+                            <i class="fas fa-arrow-left"></i>
+                            <span>Previous</span>
+                        </button>
+                        <button type="button" class="btn btn-primary btn-next">
+                            <span>Next Step</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                        <button type="submit" class="btn btn-primary btn-submit" style="display: none;">
+                            <span>Get Results</span>
+                            <i class="fas fa-chart-line"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section id="results" class="results-section" style="display: none;">
+        <div class="container">
+            <div class="results-header">
+                <h2 class="section-title">Your Risk Assessment Results</h2>
+                <button class="btn btn-secondary btn-new-assessment">
+                    <i class="fas fa-redo"></i>
+                    <span>New Assessment</span>
+                </button>
+            </div>
+
+            <div class="results-grid">
+                <!-- Overall Risk Card -->
+                <div class="result-card overall-risk">
+                    <div class="card-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="card-title">Overall Assessment</h3>
+                    <div class="risk-indicator">
+                        <div class="risk-level-badge" id="overall-risk-badge">
+                            <i class="fas fa-circle"></i>
+                            <span id="overall-risk-text">Analyzing...</span>
+                        </div>
+                        <div class="risk-confidence" id="overall-confidence">
+                            Confidence: <strong id="confidence-value">--</strong>
+                        </div>
+                    </div>
+                    <div class="recommendation-box" id="recommendation-box">
+                        <i class="fas fa-info-circle"></i>
+                        <p id="recommendation-text"></p>
+                    </div>
+                </div>
+
+                <!-- ANN Model Results -->
+                <div class="result-card model-result">
+                    <div class="model-header">
+                        <div class="model-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="model-info">
+                            <h4 class="model-name">Deep Learning Model</h4>
+                            <p class="model-type">Regularized ANN</p>
+                        </div>
+                    </div>
+                    <div class="prediction-circle" id="ann-circle">
+                        <svg class="circle-chart" viewBox="0 0 100 100">
+                            <circle class="circle-bg" cx="50" cy="50" r="45"></circle>
+                            <circle class="circle-progress" cx="50" cy="50" r="45" id="ann-progress"></circle>
+                        </svg>
+                        <div class="circle-text">
+                            <div class="circle-percentage" id="ann-percentage">0%</div>
+                            <div class="circle-label">Risk Score</div>
+                        </div>
+                    </div>
+                    <div class="model-metrics">
+                        <div class="metric">
+                            <span class="metric-label">Prediction:</span>
+                            <span class="metric-value" id="ann-prediction">--</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Confidence:</span>
+                            <span class="metric-value" id="ann-confidence">--</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Random Forest Results -->
+                <div class="result-card model-result">
+                    <div class="model-header">
+                        <div class="model-icon">
+                            <i class="fas fa-tree"></i>
+                        </div>
+                        <div class="model-info">
+                            <h4 class="model-name">Random Forest</h4>
+                            <p class="model-type">Ensemble Learning</p>
+                        </div>
+                    </div>
+                    <div class="prediction-circle" id="rf-circle">
+                        <svg class="circle-chart" viewBox="0 0 100 100">
+                            <circle class="circle-bg" cx="50" cy="50" r="45"></circle>
+                            <circle class="circle-progress" cx="50" cy="50" r="45" id="rf-progress"></circle>
+                        </svg>
+                        <div class="circle-text">
+                            <div class="circle-percentage" id="rf-percentage">0%</div>
+                            <div class="circle-label">Risk Score</div>
+                        </div>
+                    </div>
+                    <div class="model-metrics">
+                        <div class="metric">
+                            <span class="metric-label">Prediction:</span>
+                            <span class="metric-value" id="rf-prediction">--</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Confidence:</span>
+                            <span class="metric-value" id="rf-confidence">--</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Input Summary -->
+                <div class="result-card input-summary">
+                    <h4 class="card-title">Assessment Summary</h4>
+                    <div class="summary-items">
+                        <div class="summary-item">
+                            <i class="fas fa-user"></i>
+                            <div class="summary-content">
+                                <span class="summary-label">Demographics</span>
+                                <span class="summary-value" id="summary-demographics">--</span>
+                            </div>
+                        </div>
+                        <div class="summary-item">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <div class="summary-content">
+                                <span class="summary-label">Risk Factors</span>
+                                <span class="summary-value" id="summary-risk-factors">--</span>
+                            </div>
+                        </div>
+                        <div class="summary-item">
+                            <i class="fas fa-clock"></i>
+                            <div class="summary-content">
+                                <span class="summary-label">Assessment Time</span>
+                                <span class="summary-value" id="summary-timestamp">--</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="disclaimer-box">
+                <i class="fas fa-info-circle"></i>
+                <p>
+                    <strong>Medical Disclaimer:</strong> This assessment is for informational purposes only and should not replace professional medical advice. 
+                    Please consult with a healthcare provider for proper diagnosis and treatment.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">How It Works</h2>
+                <p class="section-subtitle">Our AI-powered assessment process in three simple steps</p>
+            </div>
+
+            <div class="process-grid">
+                <div class="process-card">
+                    <div class="process-number">01</div>
+                    <div class="process-icon">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <h3 class="process-title">Input Information</h3>
+                    <p class="process-description">
+                        Provide basic demographic information and answer questions about lifestyle, 
+                        symptoms, and risk factors through our intuitive step-by-step form.
+                    </p>
+                </div>
+
+                <div class="process-card">
+                    <div class="process-number">02</div>
+                    <div class="process-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3 class="process-title">AI Analysis</h3>
+                    <p class="process-description">
+                        Our dual AI system analyzes your data: a deep learning neural network and 
+                        a Random Forest model work together to assess risk patterns.
+                    </p>
+                </div>
+
+                <div class="process-card">
+                    <div class="process-number">03</div>
+                    <div class="process-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3 class="process-title">Get Results</h3>
+                    <p class="process-description">
+                        Receive detailed results from both models, including risk scores, 
+                        confidence levels, and personalized recommendations instantly.
+                    </p>
+                </div>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-bolt"></i>
+                    <h4>Lightning Fast</h4>
+                    <p>Results in under 3 seconds</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-lock"></i>
+                    <h4>Privacy First</h4>
+                    <p>Your data stays secure</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-award"></i>
+                    <h4>Research-Backed</h4>
+                    <p>Validated by studies</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h4>Mobile Friendly</h4>
+                    <p>Works on any device</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <i class="fas fa-heartbeat"></i>
+                    <span>Lung<strong>AI</strong></span>
+                </div>
+                <p class="footer-description">
+                    Advanced AI-powered lung cancer risk assessment using state-of-the-art 
+                    deep learning and machine learning models.
+                </p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/documentation">API Documentation</a></li>
+                    <li><a href="#assessment">Start Assessment</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Resources</h4>
+                <ul class="footer-links">
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="/about#models">Our Models</a></li>
+                    <li><a href="/about#research">Research</a></li>
+                    <li><a href="/about#faq">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Contact</h4>
+                <p class="footer-description">
+                    For research inquiries and collaborations, please reach out through 
+                    our documentation page.
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 LungAI. Research project for educational purposes.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.75rem;">Created by Lyon Ambrosio Djuanda</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Analyzing your data...</p>
+        </div>
+    </div>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
+

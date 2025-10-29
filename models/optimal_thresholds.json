@@ -1,0 +1,16 @@
+{
+  "regularized_ann": {
+    "threshold": 0.6861699819564819,
+    "sensitivity": 0.8888888888888888,
+    "specificity": 1.0,
+    "youden_index": 0.8888888888888888,
+    "auc": 0.9583333333333333
+  },
+  "random_forest": {
+    "threshold": 0.546663219931964,
+    "sensitivity": 0.9259259259259259,
+    "specificity": 1.0,
+    "youden_index": 0.9259259259259259,
+    "auc": 0.9444444444444445
+  }
+}

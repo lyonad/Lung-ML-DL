@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about our AI-powered lung cancer risk prediction system">
+    <title>About | LungAI - AI-Powered Healthcare</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        .page-hero {
+            padding: 150px 0 80px;
+            background: var(--gradient-hero);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: white;
+            opacity: 0.95;
+        }
+        
+        .page-hero-content {
+            position: relative;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .page-title {
+            font-size: 3rem;
+            font-weight: 800;
+            font-family: var(--font-display);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .page-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+        
+        .content-section {
+            padding: var(--spacing-2xl) 0;
+        }
+        
+        .content-section:nth-child(even) {
+            background: var(--background-secondary);
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-xl);
+            margin-top: var(--spacing-xl);
+        }
+        
+        .content-card {
+            background: white;
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .content-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .content-card h3 i {
+            color: var(--primary-color);
+        }
+        
+        .content-card p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+        
+        .stat-card {
+            background: white;
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+        }
+        
+        .stat-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto var(--spacing-md);
+            background: var(--gradient-primary);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .stat-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            font-family: var(--font-display);
+        }
+        
+        .stat-label {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        
+        .model-comparison {
+            background: white;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .model-comparison table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .model-comparison th,
+        .model-comparison td {
+            padding: var(--spacing-md);
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .model-comparison th {
+            background: var(--gradient-primary);
+            color: white;
+            font-weight: 600;
+        }
+        
+        .model-comparison tr:hover {
+            background: var(--background-secondary);
+        }
+        
+        .faq-item {
+            background: white;
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--spacing-md);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .faq-question {
+            font-weight: 700;
+            font-size: 1.125rem;
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-primary);
+        }
+        
+        .faq-answer {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <span>Lung<strong>AI</strong></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about" class="active">About</a></li>
+                <li><a href="/documentation">API Docs</a></li>
+                <li><a href="/#how-it-works">How It Works</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <h1 class="page-title"><span style="color: #1f2937;">About</span> <span class="gradient-text">LungAI</span></h1>
+                <p class="page-subtitle">
+                    <strong>"Artificial Neural Networks vs. Random Forest for Lung Cancer Risk Prediction in Pakistan: 
+                    A Comparative Analysis on Small-Scale Clinical Data"</strong>
+                </p>
+                <p class="page-subtitle" style="font-size: 0.9375rem; margin-top: 0.75rem; opacity: 0.9;">
+                    A comprehensive research platform comparing deep learning and traditional machine learning 
+                    approaches for lung cancer risk assessment in resource-constrained healthcare environments.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Overview -->
+    <section class="content-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Project Overview</h2>
+                <p class="section-subtitle">Revolutionizing lung cancer screening with artificial intelligence</p>
+            </div>
+            
+            <div class="content-grid">
+                <div class="content-card">
+                    <h3>
+                        <i class="fas fa-bullseye"></i>
+                        Mission
+                    </h3>
+                    <p>
+                        To answer a critical question facing healthcare in developing countries: <strong>Which AI 
+                        approach is most effective when data is limited?</strong> This research compares Artificial 
+                        Neural Networks (deep learning) against Random Forest (traditional machine learning) using 
+                        309 real Pakistani patient records. Our findings show that <strong>simpler models outperform 
+                        complex deep learning</strong> on small datasets—achieving higher accuracy (91.94% vs 90.32%), 
+                        10x faster training, and better interpretability for clinicians.
+                    </p>
+                </div>
+                
+                <div class="content-card">
+                    <h3>
+                        <i class="fas fa-eye"></i>
+                        Vision
+                    </h3>
+                    <p>
+                        To provide evidence-based guidance for implementing AI in <strong>resource-constrained 
+                        healthcare settings</strong>. Where data is scarce, computational power is limited, and 
+                        clinician trust requires interpretable models—our research demonstrates that Random Forest 
+                        is the optimal choice. This enables hospitals in Pakistan and similar developing regions to 
+                        deploy effective lung cancer screening without expensive infrastructure, large datasets, or 
+                        complex deep learning expertise.
+                    </p>
+                </div>
+                
+                <div class="content-card">
+                    <h3>
+                        <i class="fas fa-flask"></i>
+                        Research
+                    </h3>
+                    <p>
+                        This comparative analysis trained and evaluated <strong>5 different architectures</strong>: 
+                        Simple ANN, Deep ANN, Advanced ANN, Regularized ANN, and Random Forest—all on the same 309-patient 
+                        dataset. We employed <strong>class weight balancing</strong> to handle data imbalance, 
+                        <strong>ROC-based optimal threshold selection</strong> for each model, and 10-fold cross-validation 
+                        for robust evaluation. Results conclusively show Random Forest's superiority on small clinical datasets.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Model Performance -->
+    <section id="models" class="content-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our AI Models</h2>
+                <p class="section-subtitle">Two powerful models working together for accurate predictions</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="stat-number">91.9%</div>
+                    <div class="stat-label">Best Accuracy</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stat-number">98.0%</div>
+                    <div class="stat-label">Precision (RF)</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="stat-number">92.6%</div>
+                    <div class="stat-label">Sensitivity (RF)</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <div class="stat-number">95.2%</div>
+                    <div class="stat-label">F1 Score (RF)</div>
+                </div>
+            </div>
+            
+            <div class="model-comparison" style="margin-top: var(--spacing-xl);">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Model</th>
+                            <th>Type</th>
+                            <th>Accuracy</th>
+                            <th>Precision</th>
+                            <th>Sensitivity</th>
+                            <th>F1 Score</th>
+                            <th>ROC-AUC</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background: rgba(16, 185, 129, 0.05);">
+                            <td><strong>🥇 1st</strong></td>
+                            <td><strong>Random Forest</strong></td>
+                            <td>Ensemble Learning</td>
+                            <td><strong>91.94%</strong></td>
+                            <td><strong>98.04%</strong></td>
+                            <td>92.59%</td>
+                            <td><strong>95.24%</strong></td>
+                            <td>94.44%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>🥈 2nd</strong></td>
+                            <td><strong>Regularized ANN</strong></td>
+                            <td>Deep Learning</td>
+                            <td>90.32%</td>
+                            <td>98.00%</td>
+                            <td>90.74%</td>
+                            <td>94.23%</td>
+                            <td><strong>95.14%</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>🥉 3rd</strong></td>
+                            <td>Advanced ANN</td>
+                            <td>Deep Neural Network</td>
+                            <td>87.10%</td>
+                            <td>100%</td>
+                            <td>85.19%</td>
+                            <td>92.00%</td>
+                            <td>93.98%</td>
+                        </tr>
+                        <tr>
+                            <td>4th</td>
+                            <td>Deep ANN</td>
+                            <td>Deep Neural Network</td>
+                            <td>87.10%</td>
+                            <td>97.92%</td>
+                            <td>87.04%</td>
+                            <td>92.16%</td>
+                            <td>92.13%</td>
+                        </tr>
+                        <tr>
+                            <td>5th</td>
+                            <td>Simple ANN</td>
+                            <td>Neural Network</td>
+                            <td>85.48%</td>
+                            <td>89.47%</td>
+                            <td>94.44%</td>
+                            <td>91.89%</td>
+                            <td>65.28%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack -->
+    <section class="content-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Technology Stack</h2>
+                <p class="section-subtitle">Built with cutting-edge tools and frameworks</p>
+            </div>
+            
+            <div class="content-grid">
+                <div class="content-card">
+                    <h3>
+                        <i class="fab fa-python"></i>
+                        Backend
+                    </h3>
+                    <p>
+                        <strong>Python & Flask:</strong> Robust web framework<br>
+                        <strong>TensorFlow/Keras:</strong> Deep learning models<br>
+                        <strong>Scikit-learn:</strong> Machine learning algorithms<br>
+                        <strong>NumPy & Pandas:</strong> Data processing
+                    </p>
+                </div>
+                
+                <div class="content-card">
+                    <h3>
+                        <i class="fas fa-laptop-code"></i>
+                        Frontend
+                    </h3>
+                    <p>
+                        <strong>HTML5 & CSS3:</strong> Modern web standards<br>
+                        <strong>JavaScript:</strong> Interactive user interface<br>
+                        <strong>Font Awesome:</strong> Beautiful icons<br>
+                        <strong>Responsive Design:</strong> Mobile-first approach
+                    </p>
+                </div>
+                
+                <div class="content-card">
+                    <h3>
+                        <i class="fas fa-database"></i>
+                        Data & Models
+                    </h3>
+                    <p>
+                        <strong>Dataset:</strong> 309 patient records<br>
+                        <strong>Features:</strong> 15 risk factors analyzed<br>
+                        <strong>Training:</strong> Advanced preprocessing & optimization<br>
+                        <strong>Validation:</strong> Cross-validation & testing
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research & Dataset -->
+    <section id="research" class="content-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Research & Dataset</h2>
+                <p class="section-subtitle">Evidence-based approach to AI healthcare</p>
+            </div>
+            
+            <div class="content-card" style="max-width: 900px; margin: 0 auto;">
+                <h3>Dataset Information & Research Context</h3>
+                <p style="margin-bottom: var(--spacing-md);">
+                    This comparative study utilizes a lung cancer survey dataset from <strong>309 Pakistani patients</strong> 
+                    with <strong>15 clinical and demographic features</strong>. The research specifically investigates 
+                    <strong>"Artificial Neural Networks vs. Random Forest for Lung Cancer Risk Prediction in Pakistan: 
+                    A Comparative Analysis on Small-Scale Clinical Data"</strong> to address a fundamental question in 
+                    medical AI: <em>Does the complexity of deep learning provide advantages when training data is limited?</em>
+                </p>
+                <p style="margin-bottom: var(--spacing-md);">
+                    Our findings reveal a critical insight for healthcare in developing countries: <strong>sophisticated 
+                    deep learning architectures do not outperform traditional machine learning when datasets are small</strong>. 
+                    In fact, Random Forest achieves <strong>91.94% accuracy</strong>—surpassing the best ANN (90.32%)—while 
+                    requiring 10x less training time, minimal computational resources, and providing interpretable feature 
+                    importance that clinicians can understand and trust.
+                </p>
+                
+                <div style="background: rgba(157, 42, 23, 0.05); padding: var(--spacing-md); border-radius: var(--radius-md); margin-bottom: var(--spacing-md);">
+                    <strong>🏆 Key Research Finding:</strong> On small clinical datasets (n=309), <strong>Random Forest 
+                    outperforms all Neural Network architectures</strong>, achieving superior accuracy (91.94% vs 85.48-90.32%), 
+                    98% precision, 92.6% sensitivity, dramatically faster training (2s vs 20-40s), lower overfitting risk, 
+                    and crucial interpretability—making it the optimal choice for resource-constrained healthcare settings 
+                    in Pakistan and similar developing regions.
+                </div>
+                
+                <h4 style="margin-top: var(--spacing-lg); margin-bottom: var(--spacing-sm);">Risk Factors Analyzed:</h4>
+                <ul style="color: var(--text-secondary); line-height: 2; list-style-position: inside;">
+                    <li><strong>Demographic:</strong> Age, Gender</li>
+                    <li><strong>Lifestyle:</strong> Smoking, Peer Pressure</li>
+                    <li><strong>Physical Indicators:</strong> Yellow Fingers</li>
+                    <li><strong>Health Conditions:</strong> Chronic Disease, Allergies</li>
+                    <li><strong>Psychological:</strong> Anxiety, Fatigue</li>
+                    <li><strong>Respiratory Symptoms:</strong> Wheezing, Coughing, Shortness of Breath</li>
+                    <li><strong>Other Symptoms:</strong> Swallowing Difficulty, Chest Pain</li>
+                </ul>
+                
+                <h4 style="margin-top: var(--spacing-lg); margin-bottom: var(--spacing-sm);">Comparative Methodology:</h4>
+                <p style="margin-bottom: var(--spacing-sm);">
+                    To ensure a fair comparison between Artificial Neural Networks and Random Forest, we implemented 
+                    a rigorous experimental design where <strong>all models were trained on identical data with identical 
+                    preprocessing</strong>. This controlled approach isolates the impact of model architecture from other 
+                    variables, enabling us to definitively answer which approach works best for small clinical datasets.
+                </p>
+                <ul style="color: var(--text-secondary); line-height: 2; list-style-position: inside; margin-top: var(--spacing-sm);">
+                    <li><strong>Class Weight Balancing:</strong> Critical for handling severe imbalance (87% HIGH_RISK vs 13% LOW_RISK). 
+                    Without this, models would achieve high accuracy by simply predicting "cancer" for everyone—useless clinically.</li>
+                    
+                    <li><strong>Optimal Threshold Selection:</strong> ROC curve analysis determined optimal decision thresholds 
+                    (ANN: 0.6862, RF: 0.5467) to maximize both sensitivity (catching true cancer cases) and specificity 
+                    (avoiding false alarms)—balancing the cost of missed diagnoses vs unnecessary anxiety.</li>
+                    
+                    <li><strong>5 Model Architectures Compared:</strong> We tested increasing complexity: Simple ANN (baseline) 
+                    → Deep ANN (more layers) → Advanced ANN (wider layers) → Regularized ANN (dropout + L2) → Random Forest 
+                    (ensemble). Result: <em>More complexity didn't help; Random Forest won.</em></li>
+                    
+                    <li><strong>10+ Performance Metrics:</strong> Beyond accuracy, we evaluated ROC-AUC, Matthews Correlation 
+                    Coefficient, Cohen's Kappa, Balanced Accuracy, Precision, Recall, F1-Score, and more—ensuring models perform 
+                    well across multiple dimensions, not just overall accuracy.</li>
+                    
+                    <li><strong>Perfect LOW_RISK Detection:</strong> Random Forest achieved 100% specificity (8/8 LOW_RISK correctly 
+                    identified), meaning <strong>zero false positives</strong> in the test set—crucial for avoiding unnecessary 
+                    treatment and patient anxiety in resource-limited settings.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="content-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">Common questions about our platform</p>
+            </div>
+            
+            <div style="max-width: 900px; margin: 0 auto;">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle" style="color: var(--primary-color); margin-right: 0.5rem;"></i>
+                        How accurate is this prediction system, and why did Random Forest outperform Neural Networks?
+                    </div>
+                    <div class="faq-answer">
+                        Our <strong>Random Forest model achieves 91.94% accuracy</strong> with <strong>98.04% precision</strong> 
+                        and <strong>92.6% sensitivity</strong> on test data from 309 Pakistani patients. The best performing Neural 
+                        Network (Regularized ANN) achieves <strong>90.32% accuracy</strong>. This outcome challenges the common 
+                        assumption that "deep learning always wins"—it doesn't when data is scarce. <strong>Why Random Forest excels:</strong> 
+                        (1) It's less prone to overfitting on small datasets due to ensemble averaging, (2) It doesn't require large 
+                        amounts of data to learn complex patterns, (3) It handles feature interactions naturally without needing 
+                        thousands of training examples, and (4) It's robust to class imbalance with proper weighting. However, 
+                        this is a <em>screening tool</em>, not a diagnostic replacement—always consult qualified healthcare 
+                        professionals for medical diagnosis and treatment decisions.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle" style="color: var(--primary-color); margin-right: 0.5rem;"></i>
+                        Is my data secure and private?
+                    </div>
+                    <div class="faq-answer">
+                        Yes. We do not store any patient data. All predictions are made in real-time and 
+                        your information is not saved or shared. The data you input is only used for 
+                        generating your risk assessment and is immediately discarded after results are returned.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle" style="color: var(--primary-color); margin-right: 0.5rem;"></i>
+                        What should I do if I receive a high-risk assessment?
+                    </div>
+                    <div class="faq-answer">
+                        A high-risk assessment means you should consult with a healthcare professional as 
+                        soon as possible. They can perform proper diagnostic tests such as chest X-rays, 
+                        CT scans, or biopsies. Early detection is crucial for successful treatment.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle" style="color: var(--primary-color); margin-right: 0.5rem;"></i>
+                        Can I use this for clinical diagnosis?
+                    </div>
+                    <div class="faq-answer">
+                        No. This tool is designed for educational and screening purposes only. It is not 
+                        intended for clinical diagnosis or treatment decisions. Always consult qualified 
+                        healthcare professionals for medical advice, diagnosis, and treatment.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle" style="color: var(--primary-color); margin-right: 0.5rem;"></i>
+                        How were the models trained and compared fairly?
+                    </div>
+                    <div class="faq-answer">
+                        To conduct a rigorous comparative analysis titled <strong>"Artificial Neural Networks vs. Random Forest 
+                        for Lung Cancer Risk Prediction in Pakistan: A Comparative Analysis on Small-Scale Clinical Data"</strong>, 
+                        we trained <strong>5 different architectures</strong> (Simple ANN, Deep ANN, Advanced ANN, Regularized ANN, 
+                        Random Forest) on the <strong>identical dataset of 309 Pakistani patient records</strong> with 15 risk factors.
+                        <br><br>
+                        <strong>Experimental Design:</strong> <em>(1) Class weight balancing</em> (critical for 87% HIGH_RISK vs 
+                        13% LOW_RISK imbalance—without this, models would just predict "cancer" for everyone), <em>(2) Feature scaling</em> 
+                        with StandardScaler (required for ANNs but not for RF, yet we scaled for both to maintain consistency), 
+                        <em>(3) ROC-based optimal threshold selection</em> (individualized for each model via ROC curve analysis: 
+                        ANN=0.6862, RF=0.5467), <em>(4) 10-fold cross-validation</em> (ensures results aren't due to lucky train/test splits), 
+                        and <em>(5) Comprehensive evaluation</em> with 10+ metrics including ROC-AUC, Matthews Correlation Coefficient, 
+                        Cohen's Kappa, and Balanced Accuracy.
+                        <br><br>
+                        <strong>Key Finding:</strong> Random Forest decisively outperformed all Neural Networks—<strong>91.94% accuracy, 
+                        10x faster training</strong> (2s vs 20-40s), superior precision (98.04%), and interpretable feature importance 
+                        (clinicians can see exactly which symptoms drove each prediction). This demonstrates that <em>for small clinical 
+                        datasets (n=309), traditional machine learning beats deep learning</em>.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle" style="color: var(--primary-color); margin-right: 0.5rem;"></i>
+                        Why is this research particularly important for Pakistan and similar developing countries?
+                    </div>
+                    <div class="faq-answer">
+                        This research addresses <strong>real-world constraints</strong> that healthcare systems in developing 
+                        countries face: <strong>(1) Limited Data Availability</strong>—Many hospitals don't have thousands 
+                        of patient records needed for deep learning; 309 patients is often all you can collect. <strong>(2) 
+                        Computational Constraints</strong>—Training a Random Forest takes 2 seconds on a standard laptop vs 
+                        40 seconds for Deep ANN; in facilities with limited computing power, this matters enormously. <strong>(3) 
+                        Interpretability Requirements</strong>—Pakistani clinicians need to understand and trust AI recommendations; 
+                        Random Forest provides clear feature importance ("age and smoking were the top factors"), while neural 
+                        networks are "black boxes". <strong>(4) Cost-Effectiveness</strong>—Deploying Random Forest requires 
+                        minimal infrastructure, no GPUs, and can run on basic hardware.
+                        <br><br>
+                        Our findings prove that <strong>sophisticated AI doesn't always mean better AI</strong>—for resource-constrained 
+                        settings, simpler models are not just acceptable, they're superior. This enables Pakistani hospitals and 
+                        clinics to implement effective lung cancer screening immediately, without waiting for massive datasets or 
+                        expensive infrastructure.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <i class="fas fa-question-circle" style="color: var(--primary-color); margin-right: 0.5rem;"></i>
+                        Can I integrate this API into my application?
+                    </div>
+                    <div class="faq-answer">
+                        Yes! We provide a RESTful API that can be integrated into your healthcare 
+                        applications. Check our <a href="/documentation" style="color: var(--primary-color); text-decoration: underline;">API Documentation</a> 
+                        for detailed information on endpoints, request formats, and response structures.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="content-section" style="background: var(--gradient-primary); color: white; text-align: center;">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: var(--spacing-md);">
+                Ready to Get Started?
+            </h2>
+            <p style="font-size: 1.25rem; margin-bottom: var(--spacing-xl); opacity: 0.9;">
+                Take the first step towards proactive healthcare with our AI-powered risk assessment.
+            </p>
+            <a href="/#assessment" class="btn btn-large" style="background: white; color: var(--primary-color);">
+                <span>Start Your Assessment</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <i class="fas fa-heartbeat"></i>
+                    <span>Lung<strong>AI</strong></span>
+                </div>
+                <p class="footer-description">
+                    Comparative research platform evaluating Artificial Neural Networks vs. Random Forest 
+                    for lung cancer risk prediction using small-scale clinical data from Pakistan.
+                </p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/documentation">API Documentation</a></li>
+                    <li><a href="/#assessment">Start Assessment</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Resources</h4>
+                <ul class="footer-links">
+                    <li><a href="/#how-it-works">How It Works</a></li>
+                    <li><a href="/about#models">Our Models</a></li>
+                    <li><a href="/about#research">Research</a></li>
+                    <li><a href="/about#faq">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Contact</h4>
+                <p class="footer-description">
+                    For research inquiries and collaborations, please reach out through 
+                    our documentation page.
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 LungAI. Research project for educational purposes.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.75rem;">Created by Lyon Ambrosio Djuanda</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,18 @@
+{
+  "age": 65,
+  "gender": "M",
+  "smoking": 2,
+  "yellow_fingers": 2,
+  "anxiety": 1,
+  "peer_pressure": 1,
+  "chronic_disease": 2,
+  "fatigue": 2,
+  "allergy": 2,
+  "wheezing": 2,
+  "alcohol_consuming": 1,
+  "coughing": 2,
+  "shortness_of_breath": 2,
+  "swallowing_difficulty": 2,
+  "chest_pain": 2
+}
+

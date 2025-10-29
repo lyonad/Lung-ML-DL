@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="API documentation for LungAI prediction service">
+    <title>API Documentation | LungAI</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        .page-hero {
+            padding: 150px 0 80px;
+            background: var(--gradient-hero);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: white;
+            opacity: 0.95;
+        }
+        
+        .page-hero-content {
+            position: relative;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .page-title {
+            font-size: 3rem;
+            font-weight: 800;
+            font-family: var(--font-display);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .page-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+        
+        .doc-section {
+            padding: var(--spacing-2xl) 0;
+        }
+        
+        .doc-section:nth-child(even) {
+            background: var(--background-secondary);
+        }
+        
+        .doc-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .endpoint-card {
+            background: white;
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .endpoint-header {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-md);
+            border-bottom: 2px solid var(--border-color);
+        }
+        
+        .method-badge {
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            font-size: 0.875rem;
+            font-family: 'Fira Code', monospace;
+        }
+        
+        .method-post {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+        }
+        
+        .method-get {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white;
+        }
+        
+        .endpoint-path {
+            font-family: 'Fira Code', monospace;
+            font-size: 1.125rem;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .endpoint-description {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .code-block {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-lg);
+            font-family: 'Fira Code', monospace;
+            font-size: 0.875rem;
+            overflow-x: auto;
+            position: relative;
+            margin: var(--spacing-md) 0;
+        }
+        
+        .code-block pre {
+            margin: 0;
+            line-height: 1.6;
+        }
+        
+        .copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            font-size: 0.75rem;
+            transition: background var(--transition-fast);
+        }
+        
+        .copy-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .param-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: var(--spacing-md) 0;
+        }
+        
+        .param-table th,
+        .param-table td {
+            padding: var(--spacing-sm);
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .param-table th {
+            background: var(--background-secondary);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .param-name {
+            font-family: 'Fira Code', monospace;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .param-type {
+            font-family: 'Fira Code', monospace;
+            color: var(--secondary-color);
+            font-size: 0.875rem;
+        }
+        
+        .param-required {
+            display: inline-block;
+            background: var(--danger-color);
+            color: white;
+            padding: 0.125rem 0.5rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .param-optional {
+            display: inline-block;
+            background: var(--text-tertiary);
+            color: white;
+            padding: 0.125rem 0.5rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .info-box {
+            background: rgba(59, 130, 246, 0.1);
+            border-left: 4px solid var(--info-color);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            margin: var(--spacing-md) 0;
+        }
+        
+        .info-box i {
+            color: var(--info-color);
+            margin-right: 0.5rem;
+        }
+        
+        .warning-box {
+            background: rgba(251, 191, 36, 0.1);
+            border-left: 4px solid var(--warning-color);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            margin: var(--spacing-md) 0;
+        }
+        
+        .warning-box i {
+            color: var(--warning-color);
+            margin-right: 0.5rem;
+        }
+        
+        .quickstart-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            margin: var(--spacing-xl) 0;
+        }
+        
+        .quickstart-card {
+            background: white;
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            text-align: center;
+        }
+        
+        .quickstart-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .quickstart-card h4 {
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .quickstart-card p {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <span>Lung<strong>AI</strong></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/documentation" class="active">API Docs</a></li>
+                <li><a href="/#how-it-works">How It Works</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-content">
+                <h1 class="page-title"><span style="color: #1f2937;">API</span> <span class="gradient-text">Documentation</span></h1>
+                <p class="page-subtitle">
+                    Complete guide to integrating LungAI's prediction service into your applications
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Getting Started -->
+    <section class="doc-section">
+        <div class="container">
+            <div class="doc-container">
+                <h2 class="section-title">Getting Started</h2>
+                <p class="section-subtitle" style="text-align: left; margin-bottom: var(--spacing-xl);">
+                    Our RESTful API provides programmatic access to lung cancer risk predictions. 
+                    All responses are returned in JSON format.
+                </p>
+                
+                <div class="quickstart-grid">
+                    <div class="quickstart-card">
+                        <i class="fas fa-rocket"></i>
+                        <h4>Base URL</h4>
+                        <p style="font-family: 'Fira Code', monospace; color: var(--primary-color); font-weight: 600;">
+                            http://localhost:5000/api
+                        </p>
+                    </div>
+                    
+                    <div class="quickstart-card">
+                        <i class="fas fa-file-code"></i>
+                        <h4>Format</h4>
+                        <p>All requests and responses use JSON format with UTF-8 encoding</p>
+                    </div>
+                    
+                    <div class="quickstart-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>Authentication</h4>
+                        <p>Currently no authentication required for local development</p>
+                    </div>
+                </div>
+                
+                <div class="info-box">
+                    <i class="fas fa-info-circle"></i>
+                    <strong>Note:</strong> This API is designed for research and educational purposes. 
+                    For production use, implement proper authentication and rate limiting.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Endpoints -->
+    <section class="doc-section">
+        <div class="container">
+            <div class="doc-container">
+                <h2 class="section-title">API Endpoints</h2>
+                
+                <!-- POST /api/predict -->
+                <div class="endpoint-card">
+                    <div class="endpoint-header">
+                        <span class="method-badge method-post">POST</span>
+                        <span class="endpoint-path">/api/predict</span>
+                    </div>
+                    
+                    <p class="endpoint-description">
+                        Make a prediction for a single patient based on their risk factors and symptoms.
+                    </p>
+                    
+                    <h4 style="margin-top: var(--spacing-lg); margin-bottom: var(--spacing-sm);">Request Parameters</h4>
+                    <table class="param-table">
+                        <thead>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>Type</th>
+                                <th>Required</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="param-name">age</span></td>
+                                <td><span class="param-type">integer</span></td>
+                                <td><span class="param-required">Required</span></td>
+                                <td>Patient age (1-120)</td>
+                            </tr>
+                            <tr>
+                                <td><span class="param-name">gender</span></td>
+                                <td><span class="param-type">string</span></td>
+                                <td><span class="param-required">Required</span></td>
+                                <td>Gender ("M" or "F")</td>
+                            </tr>
+                            <tr>
+                                <td><span class="param-name">smoking</span></td>
+                                <td><span class="param-type">string</span></td>
+                                <td><span class="param-required">Required</span></td>
+                                <td>Smoking status ("1" or "2")</td>
+                            </tr>
+                            <tr>
+                                <td><span class="param-name">yellow_fingers</span></td>
+                                <td><span class="param-type">string</span></td>
+                                <td><span class="param-required">Required</span></td>
+                                <td>Yellow fingers ("1" or "2")</td>
+                            </tr>
+                            <tr>
+                                <td><span class="param-name">anxiety</span></td>
+                                <td><span class="param-type">string</span></td>
+                                <td><span class="param-required">Required</span></td>
+                                <td>Anxiety status ("1" or "2")</td>
+                            </tr>
+                            <tr>
+                                <td><span class="param-name">peer_pressure</span></td>
+                                <td><span class="param-type">string</span></td>
+                                <td><span class="param-required">Required</span></td>
+                                <td>Peer pressure ("1" or "2")</td>
+                            </tr>
+                            <tr>
+                                <td><span class="param-name">chronic_disease</span></td>
+                                <td><span class="param-type">string</span></td>
+                                <td><span class="param-required">Required</span></td>
+                                <td>Chronic disease ("1" or "2")</td>
+                            </tr>
+                            <tr>
+                                <td><span class="param-name">fatigue</span></td>
+                                <td><span class="param-type">string</span></td>
+                                <td><span class="param-required">Required</span></td>
+                                <td>Fatigue status ("1" or "2")</td>
+                            </tr>
+                            <tr>
+                                <td><span class="param-name">allergy</span></td>
+                                <td><span class="param-type">string</span></td>
+                                <td><span class="param-required">Required</span></td>
+                                <td>Allergy status ("1" or "2")</td>
+                            </tr>
+                            <tr>
+                                <td><span class="param-name">wheezing</span></td>
+                                <td><span class="param-type">string</span></td>
+                                <td><span class="param-required">Required</span></td>
+                                <td>Wheezing ("1" or "2")</td>
+                            </tr>
+                            <tr>
+                                <td><span class="param-name">coughing</span></td>
+                                <td><span class="param-type">string</span></td>
+                                <td><span class="param-required">Required</span></td>
+                                <td>Coughing ("1" or "2")</td>
+                            </tr>
+                            <tr>
+                                <td><span class="param-name">shortness_of_breath</span></td>
+                                <td><span class="param-type">string</span></td>
+                                <td><span class="param-required">Required</span></td>
+                                <td>Shortness of breath ("1" or "2")</td>
+                            </tr>
+                            <tr>
+                                <td><span class="param-name">swallowing_difficulty</span></td>
+                                <td><span class="param-type">string</span></td>
+                                <td><span class="param-required">Required</span></td>
+                                <td>Swallowing difficulty ("1" or "2")</td>
+                            </tr>
+                            <tr>
+                                <td><span class="param-name">chest_pain</span></td>
+                                <td><span class="param-type">string</span></td>
+                                <td><span class="param-required">Required</span></td>
+                                <td>Chest pain ("1" or "2")</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="info-box">
+                        <i class="fas fa-info-circle"></i>
+                        For binary features: <strong>1 = No</strong>, <strong>2 = Yes</strong>
+                    </div>
+                    
+                    <h4 style="margin-top: var(--spacing-lg); margin-bottom: var(--spacing-sm);">Example Request</h4>
+                    <div class="code-block">
+                        <button class="copy-button" onclick="copyCode(this, 'predict-request')">Copy</button>
+                        <pre id="predict-request"><span style="color: #569cd6;">POST</span> /api/predict
+<span style="color: #569cd6;">Content-Type:</span> application/json
+
+{
+  <span style="color: #9cdcfe;">"age"</span>: <span style="color: #b5cea8;">65</span>,
+  <span style="color: #9cdcfe;">"gender"</span>: <span style="color: #ce9178;">"M"</span>,
+  <span style="color: #9cdcfe;">"smoking"</span>: <span style="color: #ce9178;">"2"</span>,
+  <span style="color: #9cdcfe;">"yellow_fingers"</span>: <span style="color: #ce9178;">"2"</span>,
+  <span style="color: #9cdcfe;">"anxiety"</span>: <span style="color: #ce9178;">"1"</span>,
+  <span style="color: #9cdcfe;">"peer_pressure"</span>: <span style="color: #ce9178;">"1"</span>,
+  <span style="color: #9cdcfe;">"chronic_disease"</span>: <span style="color: #ce9178;">"2"</span>,
+  <span style="color: #9cdcfe;">"fatigue"</span>: <span style="color: #ce9178;">"2"</span>,
+  <span style="color: #9cdcfe;">"allergy"</span>: <span style="color: #ce9178;">"1"</span>,
+  <span style="color: #9cdcfe;">"wheezing"</span>: <span style="color: #ce9178;">"2"</span>,
+  <span style="color: #9cdcfe;">"coughing"</span>: <span style="color: #ce9178;">"2"</span>,
+  <span style="color: #9cdcfe;">"shortness_of_breath"</span>: <span style="color: #ce9178;">"2"</span>,
+  <span style="color: #9cdcfe;">"swallowing_difficulty"</span>: <span style="color: #ce9178;">"1"</span>,
+  <span style="color: #9cdcfe;">"chest_pain"</span>: <span style="color: #ce9178;">"2"</span>
+}</pre>
+                    </div>
+                    
+                    <h4 style="margin-top: var(--spacing-lg); margin-bottom: var(--spacing-sm);">Example Response</h4>
+                    <div class="code-block">
+                        <button class="copy-button" onclick="copyCode(this, 'predict-response')">Copy</button>
+                        <pre id="predict-response">{
+  <span style="color: #9cdcfe;">"success"</span>: <span style="color: #569cd6;">true</span>,
+  <span style="color: #9cdcfe;">"predictions"</span>: {
+    <span style="color: #9cdcfe;">"ann"</span>: {
+      <span style="color: #9cdcfe;">"probability"</span>: <span style="color: #b5cea8;">0.953</span>,
+      <span style="color: #9cdcfe;">"prediction_class"</span>: <span style="color: #ce9178;">"YES"</span>,
+      <span style="color: #9cdcfe;">"confidence"</span>: <span style="color: #b5cea8;">0.953</span>
+    },
+    <span style="color: #9cdcfe;">"rf"</span>: {
+      <span style="color: #9cdcfe;">"probability"</span>: <span style="color: #b5cea8;">0.915</span>,
+      <span style="color: #9cdcfe;">"prediction_class"</span>: <span style="color: #ce9178;">"YES"</span>,
+      <span style="color: #9cdcfe;">"confidence"</span>: <span style="color: #b5cea8;">0.915</span>
+    }
+  },
+  <span style="color: #9cdcfe;">"recommendation"</span>: {
+    <span style="color: #9cdcfe;">"risk_level"</span>: <span style="color: #ce9178;">"High Risk"</span>,
+    <span style="color: #9cdcfe;">"confidence"</span>: <span style="color: #b5cea8;">0.934</span>,
+    <span style="color: #9cdcfe;">"message"</span>: <span style="color: #ce9178;">"Both models indicate high risk."</span>,
+    <span style="color: #9cdcfe;">"action"</span>: <span style="color: #ce9178;">"Please consult with a healthcare professional immediately."</span>
+  },
+  <span style="color: #9cdcfe;">"input_summary"</span>: {
+    <span style="color: #9cdcfe;">"age"</span>: <span style="color: #b5cea8;">65</span>,
+    <span style="color: #9cdcfe;">"gender"</span>: <span style="color: #ce9178;">"M"</span>,
+    <span style="color: #9cdcfe;">"high_risk_factors"</span>: <span style="color: #b5cea8;">7</span>
+  },
+  <span style="color: #9cdcfe;">"timestamp"</span>: <span style="color: #ce9178;">"2025-10-28T12:34:56.789Z"</span>
+}</pre>
+                    </div>
+                </div>
+                
+                <!-- GET /api/models/info -->
+                <div class="endpoint-card">
+                    <div class="endpoint-header">
+                        <span class="method-badge method-get">GET</span>
+                        <span class="endpoint-path">/api/models/info</span>
+                    </div>
+                    
+                    <p class="endpoint-description">
+                        Get information about the loaded models, dataset, and available features.
+                    </p>
+                    
+                    <h4 style="margin-top: var(--spacing-lg); margin-bottom: var(--spacing-sm);">Example Request</h4>
+                    <div class="code-block">
+                        <button class="copy-button" onclick="copyCode(this, 'info-request')">Copy</button>
+                        <pre id="info-request"><span style="color: #569cd6;">GET</span> /api/models/info</pre>
+                    </div>
+                    
+                    <h4 style="margin-top: var(--spacing-lg); margin-bottom: var(--spacing-sm);">Example Response</h4>
+                    <div class="code-block">
+                        <button class="copy-button" onclick="copyCode(this, 'info-response')">Copy</button>
+                        <pre id="info-response">{
+  <span style="color: #9cdcfe;">"success"</span>: <span style="color: #569cd6;">true</span>,
+  <span style="color: #9cdcfe;">"models"</span>: {
+    <span style="color: #9cdcfe;">"regularized_ann"</span>: {
+      <span style="color: #9cdcfe;">"name"</span>: <span style="color: #ce9178;">"Regularized ANN"</span>,
+      <span style="color: #9cdcfe;">"accuracy"</span>: <span style="color: #b5cea8;">0.977</span>,
+      <span style="color: #9cdcfe;">"loaded"</span>: <span style="color: #569cd6;">true</span>
+    },
+    <span style="color: #9cdcfe;">"random_forest"</span>: {
+      <span style="color: #9cdcfe;">"name"</span>: <span style="color: #ce9178;">"Random Forest"</span>,
+      <span style="color: #9cdcfe;">"accuracy"</span>: <span style="color: #b5cea8;">0.968</span>,
+      <span style="color: #9cdcfe;">"loaded"</span>: <span style="color: #569cd6;">true</span>
+    }
+  },
+  <span style="color: #9cdcfe;">"dataset"</span>: {
+    <span style="color: #9cdcfe;">"total_samples"</span>: <span style="color: #b5cea8;">309</span>,
+    <span style="color: #9cdcfe;">"features"</span>: <span style="color: #b5cea8;">15</span>
+  },
+  <span style="color: #9cdcfe;">"status"</span>: <span style="color: #ce9178;">"ready"</span>
+}</pre>
+                    </div>
+                </div>
+                
+                <!-- GET /api/health -->
+                <div class="endpoint-card">
+                    <div class="endpoint-header">
+                        <span class="method-badge method-get">GET</span>
+                        <span class="endpoint-path">/api/health</span>
+                    </div>
+                    
+                    <p class="endpoint-description">
+                        Health check endpoint to verify the API is running and models are loaded.
+                    </p>
+                    
+                    <h4 style="margin-top: var(--spacing-lg); margin-bottom: var(--spacing-sm);">Example Response</h4>
+                    <div class="code-block">
+                        <button class="copy-button" onclick="copyCode(this, 'health-response')">Copy</button>
+                        <pre id="health-response">{
+  <span style="color: #9cdcfe;">"status"</span>: <span style="color: #ce9178;">"healthy"</span>,
+  <span style="color: #9cdcfe;">"timestamp"</span>: <span style="color: #ce9178;">"2025-10-28T12:34:56.789Z"</span>,
+  <span style="color: #9cdcfe;">"models_loaded"</span>: <span style="color: #569cd6;">true</span>
+}</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Code Examples -->
+    <section class="doc-section">
+        <div class="container">
+            <div class="doc-container">
+                <h2 class="section-title">Code Examples</h2>
+                
+                <h3 style="margin-bottom: var(--spacing-md);">Python</h3>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyCode(this, 'python-example')">Copy</button>
+                    <pre id="python-example"><span style="color: #569cd6;">import</span> requests
+
+<span style="color: #6a9955;"># API endpoint</span>
+url = <span style="color: #ce9178;">"http://localhost:5000/api/predict"</span>
+
+<span style="color: #6a9955;"># Patient data</span>
+data = {
+    <span style="color: #ce9178;">"age"</span>: <span style="color: #b5cea8;">65</span>,
+    <span style="color: #ce9178;">"gender"</span>: <span style="color: #ce9178;">"M"</span>,
+    <span style="color: #ce9178;">"smoking"</span>: <span style="color: #ce9178;">"2"</span>,
+    <span style="color: #ce9178;">"yellow_fingers"</span>: <span style="color: #ce9178;">"2"</span>,
+    <span style="color: #ce9178;">"anxiety"</span>: <span style="color: #ce9178;">"1"</span>,
+    <span style="color: #ce9178;">"peer_pressure"</span>: <span style="color: #ce9178;">"1"</span>,
+    <span style="color: #ce9178;">"chronic_disease"</span>: <span style="color: #ce9178;">"2"</span>,
+    <span style="color: #ce9178;">"fatigue"</span>: <span style="color: #ce9178;">"2"</span>,
+    <span style="color: #ce9178;">"allergy"</span>: <span style="color: #ce9178;">"1"</span>,
+    <span style="color: #ce9178;">"wheezing"</span>: <span style="color: #ce9178;">"2"</span>,
+    <span style="color: #ce9178;">"coughing"</span>: <span style="color: #ce9178;">"2"</span>,
+    <span style="color: #ce9178;">"shortness_of_breath"</span>: <span style="color: #ce9178;">"2"</span>,
+    <span style="color: #ce9178;">"swallowing_difficulty"</span>: <span style="color: #ce9178;">"1"</span>,
+    <span style="color: #ce9178;">"chest_pain"</span>: <span style="color: #ce9178;">"2"</span>
+}
+
+<span style="color: #6a9955;"># Make request</span>
+response = requests.post(url, json=data)
+
+<span style="color: #6a9955;"># Check result</span>
+<span style="color: #569cd6;">if</span> response.status_code == <span style="color: #b5cea8;">200</span>:
+    result = response.json()
+    <span style="color: #569cd6;">print</span>(<span style="color: #ce9178;">f"Risk Level: {result['recommendation']['risk_level']}"</span>)
+    <span style="color: #569cd6;">print</span>(<span style="color: #ce9178;">f"Confidence: {result['recommendation']['confidence']:.1%}"</span>)
+<span style="color: #569cd6;">else</span>:
+    <span style="color: #569cd6;">print</span>(<span style="color: #ce9178;">f"Error: {response.json()['error']}"</span>)</pre>
+                </div>
+                
+                <h3 style="margin: var(--spacing-xl) 0 var(--spacing-md);">JavaScript</h3>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyCode(this, 'js-example')">Copy</button>
+                    <pre id="js-example"><span style="color: #6a9955;">// API endpoint</span>
+<span style="color: #569cd6;">const</span> url = <span style="color: #ce9178;">'http://localhost:5000/api/predict'</span>;
+
+<span style="color: #6a9955;">// Patient data</span>
+<span style="color: #569cd6;">const</span> data = {
+  age: <span style="color: #b5cea8;">65</span>,
+  gender: <span style="color: #ce9178;">'M'</span>,
+  smoking: <span style="color: #ce9178;">'2'</span>,
+  yellow_fingers: <span style="color: #ce9178;">'2'</span>,
+  anxiety: <span style="color: #ce9178;">'1'</span>,
+  peer_pressure: <span style="color: #ce9178;">'1'</span>,
+  chronic_disease: <span style="color: #ce9178;">'2'</span>,
+  fatigue: <span style="color: #ce9178;">'2'</span>,
+  allergy: <span style="color: #ce9178;">'1'</span>,
+  wheezing: <span style="color: #ce9178;">'2'</span>,
+  coughing: <span style="color: #ce9178;">'2'</span>,
+  shortness_of_breath: <span style="color: #ce9178;">'2'</span>,
+  swallowing_difficulty: <span style="color: #ce9178;">'1'</span>,
+  chest_pain: <span style="color: #ce9178;">'2'</span>
+};
+
+<span style="color: #6a9955;">// Make request</span>
+<span style="color: #dcdcaa;">fetch</span>(url, {
+  method: <span style="color: #ce9178;">'POST'</span>,
+  headers: {
+    <span style="color: #ce9178;">'Content-Type'</span>: <span style="color: #ce9178;">'application/json'</span>
+  },
+  body: JSON.<span style="color: #dcdcaa;">stringify</span>(data)
+})
+  .<span style="color: #dcdcaa;">then</span>(response => response.<span style="color: #dcdcaa;">json</span>())
+  .<span style="color: #dcdcaa;">then</span>(result => {
+    console.<span style="color: #dcdcaa;">log</span>(<span style="color: #ce9178;">'Risk Level:'</span>, result.recommendation.risk_level);
+    console.<span style="color: #dcdcaa;">log</span>(<span style="color: #ce9178;">'Confidence:'</span>, result.recommendation.confidence);
+  })
+  .<span style="color: #dcdcaa;">catch</span>(error => {
+    console.<span style="color: #dcdcaa;">error</span>(<span style="color: #ce9178;">'Error:'</span>, error);
+  });</pre>
+                </div>
+                
+                <h3 style="margin: var(--spacing-xl) 0 var(--spacing-md);">cURL</h3>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyCode(this, 'curl-example')">Copy</button>
+                    <pre id="curl-example">curl -X POST http://localhost:5000/api/predict \
+  -H <span style="color: #ce9178;">"Content-Type: application/json"</span> \
+  -d <span style="color: #ce9178;">'{"age":65,"gender":"M","smoking":"2","yellow_fingers":"2","anxiety":"1","peer_pressure":"1","chronic_disease":"2","fatigue":"2","allergy":"1","wheezing":"2","coughing":"2","shortness_of_breath":"2","swallowing_difficulty":"1","chest_pain":"2"}'</span></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Error Handling -->
+    <section class="doc-section">
+        <div class="container">
+            <div class="doc-container">
+                <h2 class="section-title">Error Handling</h2>
+                
+                <div class="warning-box">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <strong>Important:</strong> Always check the <code>success</code> field in responses 
+                    and handle errors appropriately in your application.
+                </div>
+                
+                <h4 style="margin: var(--spacing-lg) 0 var(--spacing-sm);">Error Response Format</h4>
+                <div class="code-block">
+                    <pre>{
+  <span style="color: #9cdcfe;">"success"</span>: <span style="color: #569cd6;">false</span>,
+  <span style="color: #9cdcfe;">"error"</span>: <span style="color: #ce9178;">"Error message describing what went wrong"</span>,
+  <span style="color: #9cdcfe;">"details"</span>: <span style="color: #ce9178;">"Additional details (optional)"</span>
+}</pre>
+                </div>
+                
+                <h4 style="margin: var(--spacing-lg) 0 var(--spacing-sm);">HTTP Status Codes</h4>
+                <table class="param-table">
+                    <thead>
+                        <tr>
+                            <th>Status Code</th>
+                            <th>Meaning</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>200</strong></td>
+                            <td>Success</td>
+                            <td>Request completed successfully</td>
+                        </tr>
+                        <tr>
+                            <td><strong>400</strong></td>
+                            <td>Bad Request</td>
+                            <td>Invalid input data or missing required fields</td>
+                        </tr>
+                        <tr>
+                            <td><strong>404</strong></td>
+                            <td>Not Found</td>
+                            <td>Endpoint doesn't exist</td>
+                        </tr>
+                        <tr>
+                            <td><strong>500</strong></td>
+                            <td>Internal Server Error</td>
+                            <td>Server-side error occurred</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <i class="fas fa-heartbeat"></i>
+                    <span>Lung<strong>AI</strong></span>
+                </div>
+                <p class="footer-description">
+                    Advanced AI-powered lung cancer risk assessment using state-of-the-art 
+                    deep learning and machine learning models.
+                </p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/documentation">API Documentation</a></li>
+                    <li><a href="/#assessment">Start Assessment</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Resources</h4>
+                <ul class="footer-links">
+                    <li><a href="/#how-it-works">How It Works</a></li>
+                    <li><a href="/about#models">Our Models</a></li>
+                    <li><a href="/about#research">Research</a></li>
+                    <li><a href="/about#faq">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Contact</h4>
+                <p class="footer-description">
+                    For research inquiries and collaborations, please reach out through 
+                    our documentation page.
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 LungAI. Research project for educational purposes.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.75rem;">Created by Lyon Ambrosio Djuanda</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/js/main.js"></script>
+    <script>
+        function copyCode(button, elementId) {
+            const code = document.getElementById(elementId).textContent;
+            
+            // Remove HTML tags for plain text
+            const tempElement = document.createElement('div');
+            tempElement.innerHTML = code;
+            const plainText = tempElement.textContent || tempElement.innerText;
+            
+            navigator.clipboard.writeText(plainText).then(() => {
+                button.textContent = 'Copied!';
+                button.style.background = 'rgba(16, 185, 129, 0.3)';
+                
+                setTimeout(() => {
+                    button.textContent = 'Copy';
+                    button.style.background = 'rgba(255, 255, 255, 0.1)';
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy:', err);
+            });
+        }
+    </script>
+</body>
+</html>
+
